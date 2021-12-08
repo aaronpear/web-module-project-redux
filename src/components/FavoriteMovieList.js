@@ -9,8 +9,7 @@ const FavoriteMovieList = (props) => {
     const favorites = props.favorites;
     
     const handleRemove = (e) => {
-        console.log(e.target.value);
-        props.removeFavorite(e.target.value);
+        props.removeFavorite(e.target.attributes.value.value);
     }
 
     return (<div className="col-xs savedContainer">
@@ -20,7 +19,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span class="material-icons" onClick={handleRemove} value={movie.id}>remove_circle</span></span>
+                        <span><span className="material-icons" onClick={handleRemove} value={movie.id}>remove_circle</span></span>
                     </Link> 
                 </div>
             })
